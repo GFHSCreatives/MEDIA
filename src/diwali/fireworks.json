@@ -1,0 +1,225 @@
+{
+ "_doc": "Firework cue sheet shared by the picture (src/diwali/fireworks.ts) and the score (scripts/make_diwali_audio.py). Frames @24fps. x,y = burst centre in sky space (final framing px); scene 1 entries are screen space during the aerial shot. type: peony | willow | chrysanthemum | ring | crackle. palette: gold | orange | white | mixed.",
+ "shells": [
+  {
+   "scene": 1,
+   "launch": 2,
+   "burst": 16,
+   "x": 820,
+   "y": 600,
+   "r": 120,
+   "type": "peony",
+   "palette": "gold"
+  },
+  {
+   "scene": 1,
+   "launch": 14,
+   "burst": 30,
+   "x": 250,
+   "y": 520,
+   "r": 140,
+   "type": "chrysanthemum",
+   "palette": "orange"
+  },
+  {
+   "scene": 1,
+   "launch": 30,
+   "burst": 46,
+   "x": 760,
+   "y": 420,
+   "r": 200,
+   "type": "willow",
+   "palette": "gold"
+  },
+  {
+   "scene": 1,
+   "launch": 46,
+   "burst": 62,
+   "x": 540,
+   "y": 560,
+   "r": 340,
+   "type": "chrysanthemum",
+   "palette": "white"
+  },
+  {
+   "scene": 2,
+   "launch": 60,
+   "burst": 76,
+   "x": 540,
+   "y": 1660,
+   "r": 400,
+   "type": "chrysanthemum",
+   "palette": "gold"
+  },
+  {
+   "scene": 2,
+   "launch": 74,
+   "burst": 90,
+   "x": 250,
+   "y": 1520,
+   "r": 270,
+   "type": "peony",
+   "palette": "orange"
+  },
+  {
+   "scene": 2,
+   "launch": 86,
+   "burst": 102,
+   "x": 830,
+   "y": 1480,
+   "r": 330,
+   "type": "willow",
+   "palette": "gold"
+  },
+  {
+   "scene": 2,
+   "launch": 98,
+   "burst": 114,
+   "x": 430,
+   "y": 1420,
+   "r": 250,
+   "type": "ring",
+   "palette": "white"
+  },
+  {
+   "scene": 2,
+   "launch": 110,
+   "burst": 126,
+   "x": 720,
+   "y": 1700,
+   "r": 300,
+   "type": "crackle",
+   "palette": "gold"
+  },
+  {
+   "scene": 3,
+   "launch": 146,
+   "burst": 162,
+   "x": 250,
+   "y": 330,
+   "r": 200,
+   "type": "peony",
+   "palette": "gold"
+  },
+  {
+   "scene": 3,
+   "launch": 170,
+   "burst": 186,
+   "x": 860,
+   "y": 360,
+   "r": 210,
+   "type": "chrysanthemum",
+   "palette": "orange"
+  },
+  {
+   "scene": 3,
+   "launch": 188,
+   "burst": 204,
+   "x": 540,
+   "y": 250,
+   "r": 250,
+   "type": "willow",
+   "palette": "gold"
+  },
+  {
+   "scene": 3,
+   "launch": 196,
+   "burst": 212,
+   "x": 820,
+   "y": 1560,
+   "r": 170,
+   "type": "peony",
+   "palette": "mixed"
+  },
+  {
+   "scene": 3,
+   "launch": 208,
+   "burst": 222,
+   "x": 260,
+   "y": 1600,
+   "r": 170,
+   "type": "crackle",
+   "palette": "gold"
+  },
+  {
+   "scene": 4,
+   "launch": 246,
+   "burst": 260,
+   "x": 280,
+   "y": 300,
+   "r": 170,
+   "type": "peony",
+   "palette": "gold"
+  },
+  {
+   "scene": 4,
+   "launch": 256,
+   "burst": 270,
+   "x": 820,
+   "y": 320,
+   "r": 170,
+   "type": "peony",
+   "palette": "orange"
+  },
+  {
+   "scene": 5,
+   "launch": 286,
+   "burst": 300,
+   "x": 540,
+   "y": 300,
+   "r": 300,
+   "type": "willow",
+   "palette": "gold"
+  },
+  {
+   "scene": 5,
+   "launch": 298,
+   "burst": 312,
+   "x": 230,
+   "y": 390,
+   "r": 210,
+   "type": "chrysanthemum",
+   "palette": "gold"
+  },
+  {
+   "scene": 5,
+   "launch": 306,
+   "burst": 320,
+   "x": 860,
+   "y": 370,
+   "r": 210,
+   "type": "chrysanthemum",
+   "palette": "orange"
+  },
+  {
+   "scene": 5,
+   "launch": 316,
+   "burst": 330,
+   "x": 220,
+   "y": 1680,
+   "r": 160,
+   "type": "peony",
+   "palette": "gold"
+  },
+  {
+   "scene": 5,
+   "launch": 324,
+   "burst": 338,
+   "x": 540,
+   "y": 260,
+   "r": 260,
+   "type": "ring",
+   "palette": "gold"
+  },
+  {
+   "scene": 5,
+   "launch": 330,
+   "burst": 344,
+   "x": 870,
+   "y": 1700,
+   "r": 160,
+   "type": "peony",
+   "palette": "gold"
+  }
+ ]
+}

@@ -11,6 +11,7 @@
     "vectorize": "python3 scripts/vectorize_logo.py"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^5.3.0",
     "@react-three/fiber": "8.18.0",
     "@remotion/cli": "4.0.541",
     "@remotion/three": "4.0.541",

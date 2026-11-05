@@ -105,3 +105,34 @@ To regenerate assets: `npm run vectorize`, `python3 scripts/make_textures.py`, `
 - **Remotion license:** Remotion is free for individuals, non-profits and companies with up to 3 employees. Larger
   organizations need a [Remotion company license](https://www.remotion.pro/license) to render with it.
   Three.js and React Three Fiber are MIT-licensed.
+
+---
+
+# Diwali 2026 reel — vertical 9:16
+
+A 15-second, 24 fps vertical film (Instagram Reels / YouTube Shorts) built in the same pipeline.
+
+| Deliverable | File |
+|---|---|
+| Master video, 1080×1920 H.264 + AAC | `out/gsa-diwali-reel-1080x1920.mp4` |
+| End-card still | `out/gsa-diwali-endcard.png` |
+| Score, 48 kHz stereo (−14 LUFS for social, −1 dBFS peak) | `public/audio/diwali-score.wav` |
+
+For 4K UHD (2160×3840): `npx remotion render DiwaliReel out/gsa-diwali-reel-4k.mp4 --scale=2`.
+The canvases render at device pixel ratio and the logo is vector, so the 4K output is natively sharp.
+
+| Time | Frames | Scene |
+|---|---|---|
+| 0–2.9 s | 0–69 | **01 Aviation world.** Night aerial glide over the academy: runway edge, threshold and approach lights with sequenced strobes, blue taxiway, floodlit apron with the trainer jet, hangar, control tower, coconut palms, Diwali light strings on every building. A jet with landing lights descends over the camera. Distant fireworks. |
+| 2.9–5.6 s | 70–133 | **02 The celebration.** Five professionals on the academy terrace, watching the display: a pilot (white shirt, epaulettes, peaked cap), three cabin crew (black uniforms, orange scarves and piping), and a professional (black jacket, orange detailing). Fireworks rim-light them. Diyas and marigold garlands line the parapet, and out-of-focus festoon lights hang in front of the camera. Slow dolly-in with parallax. |
+| 5.1–9.7 s | 122–232 | **03 The magical flight.** The camera tilts up after a rising golden shell. Its trail turns from gold to brand orange, ignites at the arc's tip, and the jet flies the exact logo arc. The arc paints in behind it and sheds embers. |
+| 10.0–12.0 s | 240–288 | **04 Grand reveal.** A golden halo blooms. 4,520 golden particles, sampled from the official artwork, converge onto it, and the exact vector logo resolves sharp. |
+| 12.4–15.0 s | 298–359 | **05 Greeting.** "WISHING YOU A / PROSPEROUS & SAFE DIWALI" in Montserrat (SIL OFL), with a gold rule. Fireworks continue behind the logo, outside a keep-clear zone, and orange motes drift. |
+
+The firework cue sheet (`src/diwali/fireworks.json`) drives both the picture and the score, so every burst
+has its boom and crackle on the same frame. The tempo is 96 BPM, so one beat is exactly 15 frames.
+
+**About the people in Scene 02:** this pipeline renders in code and cannot generate photorealistic human faces.
+The five professionals are staged from behind, as rim-lit silhouettes watching the fireworks. That avoids
+uncanny faces and keeps their uniforms recognizable. To use filmed or AI-generated footage instead, replace
+`<Celebration />` in `src/diwali/DiwaliReel.tsx` with an `<OffthreadVideo>` covering frames 70–170.
