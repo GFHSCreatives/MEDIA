@@ -22,8 +22,10 @@ export const T = {
   lettersStart: 282,
   lettersEnd: 326,
   lineRetract: 318,
-  // 6. Hero hold + light sweep
-  sheenStart: 340,
-  sheenEnd: 384,
+  // 6. Tagline + ® settle in, hero hold with a light sweep along the arc
+  taglineStart: 322,
+  sheenStart: 336,
+  sheenEnd: 368,
+  regMark: 362,
   end: DURATION,
 } as const;

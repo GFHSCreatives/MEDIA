@@ -1,14 +1,15 @@
 # GLOBAL — "First Light" · cinematic aviation logo intro
 
-A 14-second, 1920×1080 / 30 fps logo intro for **GLOBAL**, built from the original logo artwork.
+A 14-second, 1920×1080 / 30 fps logo intro for **GLOBAL — GHA & School of Aviation**, built from the official logo artwork
+(`assets/global-logo-original.png`: arc, GLOBAL wordmark, tagline and ® mark).
 It is rendered entirely in code (Remotion + Three.js) and uses an original synthesized soundtrack.
 
 | Deliverable | File |
 |---|---|
 | Master video, H.264 1080p30 with stereo AAC audio | `out/global-intro-1080p.mp4` |
 | End-card still (poster or thumbnail) | `out/global-endcard.png` |
-| Soundtrack stem, 48 kHz stereo WAV (about −16 LUFS integrated, −2 dBTP) | `public/audio/global-intro-score.wav` |
-| Vectorized logo layers (arc and each letter) | `src/logoPaths.ts` |
+| Soundtrack stem, 48 kHz stereo WAV (−16 LUFS integrated, −1.5 dBFS peak) | `public/audio/global-intro-score.wav` |
+| Vectorized logo layers (arc, each letter, each tagline glyph, ®, sampled ink colors) | `src/logoPaths.ts` |
 
 ## The concept
 
@@ -21,7 +22,8 @@ The orange arc in the logo is used as two things at once: a sunrise breaking ove
 | 6.5 – 8.5 s | 196 – 256 | **The arc.** The jet pulls up and flies the exact curve of the logo arc across the rising sun. Its wake becomes the arc: white-hot at first, then cooling to the brand gradient. |
 | 8.0 – 9.7 s | 240 – 292 | **First light.** The sun clears the horizon and its light fills the frame until it turns white. The arc stays on screen in its original colors. |
 | 9.0 – 11.0 s | 270 – 334 | **The flight line.** A thin orange line draws across at the height of the gaps in the "O". The letters G-L-O-B-A-L open up and down from that line, starting at the O and moving outward. The line then shrinks back into the O. |
-| 11.3 – 14.0 s | 340 – 419 | **Hero hold.** A light glint runs along the arc and the camera pushes in slightly. The final frame is the original logo on white. |
+| 10.7 – 11.8 s | 322 – 356 | **Tagline.** "GHA & School of Aviation" rises into place glyph by glyph, left to right, with a light tracking-in. |
+| 11.2 – 14.0 s | 336 – 419 | **Hero hold.** A light glint runs along the arc and finishes at the ®, which pops in with a small orange flare. The camera pushes in slightly. The final frame is the official logo on white. |
 
 ### Matching the jet to the logo
 
@@ -49,7 +51,7 @@ films: a long-lens overtake with contrails, and a low sun that produces anamorph
   own (no `useFrame`), and everything is driven by `useCurrentFrame()`. I also looked at the `light-leaks`, `motion-blur` and `sfx` guidance.
 - [mrdoob/three.js](https://github.com/mrdoob/three.js) and [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber), via `@remotion/three`: sky shader, instanced volumetric cloud billboards, the
   procedural aircraft and the contrail ribbons.
-- `potracer` (a pure-Python port of Potrace) was used to vectorize the logo letters. The arc is fitted analytically (polynomial centerline
+- `potracer` (a pure-Python port of Potrace) was used to vectorize the wordmark, tagline and ®. The arc is fitted analytically (polynomial centerline
   plus thickness) so its edges stay clean at 4K.
 - GSAP was considered but not used. Remotion's `useCurrentFrame()` with the deterministic easing in `src/flight.ts` gives the same
   control and stays frame-exact in parallel renders. A GSAP timeline would have to be scrubbed manually each frame.
@@ -84,13 +86,14 @@ On a workstation with a GPU, switch it to `"angle"` for faster renders. If Remot
 example in an offline CI job), set `REMOTION_BROWSER=/path/to/chrome-headless-shell`.
 
 To regenerate assets: `npm run vectorize`, `python3 scripts/make_textures.py`, `npm run audio`
-(requires `numpy scipy pillow potracer`).
+(requires `numpy scipy pillow potracer pyloudnorm`).
 
 ### Customizing
 
 - **Timing:** change the cue frames in `src/timeline.ts`. If you move any cue, update the matching times at the top of
   `scripts/make_audio.py` too.
 - **Logo size and position:** `LOGO_SCREEN_WIDTH` in `src/flight.ts`. The jet's arc path follows automatically.
+- **New logo artwork:** replace `assets/global-logo-original.png` and run `npm run vectorize`. The script expects three ink rows (® beside the arc, wordmark, tagline).
 - **Livery colors:** `src/three/Aircraft.tsx`.
 - **No audio:** render with `--props='{"withAudio":false}'`.
 

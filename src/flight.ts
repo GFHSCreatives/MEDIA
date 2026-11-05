@@ -1,14 +1,16 @@
 import * as THREE from "three";
-import { ARC_CENTERLINE, LOGO_VIEWBOX } from "./logoPaths";
+import { ARC_CENTERLINE, LOGO_BOUNDS } from "./logoPaths";
 import { HEIGHT, T, WIDTH } from "./timeline";
 
 /* ------------------------------------------------------------------ */
 /*  Logo placement on screen (shared by the 2D layers and the 3D path) */
 /* ------------------------------------------------------------------ */
-export const LOGO_SCREEN_WIDTH = 1100;
-export const LOGO_SCALE = LOGO_SCREEN_WIDTH / LOGO_VIEWBOX.width;
-// visual centre of the artwork (arc top ≈ 90, letters bottom ≈ 315)
-export const LOGO_CENTER_VB = { x: LOGO_VIEWBOX.width / 2, y: 202.5 };
+/** on-screen width of the full lockup (arc tip to ® / letter edge) */
+export const LOGO_SCREEN_WIDTH = 1160;
+const LOGO_W = LOGO_BOUNDS.x1 - LOGO_BOUNDS.x0;
+export const LOGO_SCALE = LOGO_SCREEN_WIDTH / LOGO_W;
+// optical centre of the lockup (arc top → tagline baseline)
+export const LOGO_CENTER_VB = { x: (LOGO_BOUNDS.x0 + LOGO_BOUNDS.x1) / 2, y: (LOGO_BOUNDS.y0 + LOGO_BOUNDS.y1) / 2 };
 export const vbToScreen = (x: number, y: number) => ({
   x: WIDTH / 2 + (x - LOGO_CENTER_VB.x) * LOGO_SCALE,
   y: HEIGHT / 2 + (y - LOGO_CENTER_VB.y) * LOGO_SCALE,

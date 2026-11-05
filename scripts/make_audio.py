@@ -8,7 +8,9 @@ Every cue is locked to the video timeline (src/timeline.ts @ 30 fps):
   8.93 s  impact as the sun floods to white: sub drop, air burst, shimmer tail
           pad resolves Dsus2 → D major
   9.0 s   flight-line "zip", then soft swishes as the letters open
-  11.3 s  sheen chime
+  10.7 s  tagline sweeps in
+  11.2 s  sheen chime along the arc
+  12.2 s  ® glint
   14.0 s  end
 
 usage: python3 scripts/make_audio.py public/audio/global-intro-score.wav
@@ -34,7 +36,9 @@ ARC_END = 256 / FPS
 FLOOD_PEAK = 268 / FPS
 LINE_START = 270 / FPS
 LETTERS = [282 / FPS, 288 / FPS, 294 / FPS, 300 / FPS]
-SHEEN = 340 / FPS
+SHEEN = 336 / FPS
+TAGLINE = 322 / FPS
+REG_MARK = 362 / FPS
 
 
 def env(points):
@@ -203,6 +207,10 @@ for i, lt in enumerate(LETTERS):
     for side in ([0.0] if i == 0 else [-0.25 * i, 0.25 * i]):
         mix += swish(lt, 0.3, 1200, 6000, 0.16, side)
 
+# tagline: a gentle airy sweep as the glyphs rise left→right
+mix += swish(TAGLINE, 0.75, 1500, 8000, 0.12, -0.3)
+mix += swish(TAGLINE + 0.25, 0.7, 2000, 9000, 0.08, 0.3)
+
 # soft "click" as the line retracts into the O
 tc = 330 / FPS
 click = osc(2350) * np.exp(-np.clip(t - tc, 0, None) * 40) * (t >= tc)
@@ -218,8 +226,13 @@ def fm_bell(fc, ratio=3.5, index=2.2, decay=1.4):
 
 
 chime = fm_bell(1174.66) * 0.5 + fm_bell(1760.0, decay=1.8) * 0.3 + fm_bell(2349.3, decay=2.2) * 0.15
-sweep = np.interp(t, [SHEEN, SHEEN + 1.4], [-0.5, 0.5])
+sweep = np.interp(t, [SHEEN, SHEEN + 1.1], [-0.5, 0.6])
 mix += pan(chime, sweep) * 0.16
+
+# ® glint: tiny high bell, far right
+tr = np.clip(t - (REG_MARK + 0.15), 0, None)
+glint = (np.sin(2 * np.pi * 3520 * tr) + 0.4 * np.sin(2 * np.pi * 5274 * tr)) * np.exp(-tr * 6) * (t >= REG_MARK + 0.15)
+mix += pan(glint, 0.7) * 0.05
 
 # ------------------------------------------------------------------ reverb (synthetic stereo hall IR)
 ir_len = int(SR * 3.2)
@@ -234,10 +247,28 @@ out = mix * 0.82 + wet * 0.38
 out = hp(out.T, 28).T  # rumble guard
 out[-int(SR * 0.25):] *= np.linspace(1, 0, int(SR * 0.25))[:, None]
 out[: int(SR * 0.02)] *= np.linspace(0, 1, int(SR * 0.02))[:, None]
-peak = np.abs(out).max()
-out = out / peak * 1.6
-out = np.tanh(out) / np.tanh(1.6)  # gentle saturation / limiting
-out *= 10 ** (-2.3 / 20)  # ≈ −14 LUFS integrated, ≈ −2 dBTP
+# loudness-targeted master: soft-saturating limiter, solve drive for −16 LUFS integrated
+import pyloudnorm as pyln
+
+meter = pyln.Meter(SR)
+TARGET_LUFS, CEILING = -16.0, 10 ** (-1.5 / 20)
+base = out / np.abs(out).max()
+
+
+def master(drive):
+    y = np.tanh(base * drive) / np.tanh(drive) if drive > 0 else base
+    return y * CEILING
+
+
+lo, hi = 0.3, 6.0
+for _ in range(30):
+    mid = (lo + hi) / 2
+    if meter.integrated_loudness(master(mid)) < TARGET_LUFS:
+        lo = mid
+    else:
+        hi = mid
+out = master((lo + hi) / 2)
+print(f"master: {meter.integrated_loudness(out):.1f} LUFS, drive {(lo + hi) / 2:.2f}")
 
 dest = Path(sys.argv[1] if len(sys.argv) > 1 else "public/audio/global-intro-score.wav")
 dest.parent.mkdir(parents=True, exist_ok=True)
