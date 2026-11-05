@@ -1,0 +1,27 @@
+{
+  "name": "global-aviation-logo-intro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cinematic aviation logo intro for GLOBAL, built with Remotion + Three.js",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render GlobalIntro out/global-intro-1080p.mp4",
+    "render:4k": "remotion render GlobalIntro4K out/global-intro-4k.mp4",
+    "audio": "python3 scripts/make_audio.py public/audio/global-intro-score.wav",
+    "vectorize": "python3 scripts/vectorize_logo.py"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.18.0",
+    "@remotion/cli": "4.0.541",
+    "@remotion/three": "4.0.541",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.541",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/three": "0.169.0",
+    "typescript": "5.6.3"
+  }
+}
