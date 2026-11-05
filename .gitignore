@@ -2,5 +2,8 @@ node_modules
 out/*
 !out/global-intro-1080p.mp4
 !out/global-endcard.png
+!out/gsa-diwali-reel-1080x1920.mp4
+!out/gsa-diwali-endcard.png
+!out/gsa-diwali-reel-4k.mp4
 *.log
 .DS_Store
