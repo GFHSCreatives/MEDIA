@@ -1,4 +1,6 @@
 node_modules
-out
+out/*
+!out/global-intro-1080p.mp4
+!out/global-endcard.png
 *.log
 .DS_Store
