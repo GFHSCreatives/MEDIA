@@ -7,3 +7,4 @@ out/*
 !out/gsa-diwali-reel-4k.mp4
 *.log
 .DS_Store
+!out/gemini-diwali-no-wishes-line.mp4
