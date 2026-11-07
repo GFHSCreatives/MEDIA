@@ -8,3 +8,4 @@ out/*
 *.log
 .DS_Store
 !out/gemini-diwali-no-wishes-line.mp4
+!out/gemini-diwali-celebrations.mp4
