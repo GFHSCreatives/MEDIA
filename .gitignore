@@ -5,8 +5,15 @@ out/*
 !out/gsa-diwali-reel-1080x1920.mp4
 !out/gsa-diwali-endcard.png
 !out/gsa-diwali-reel-4k.mp4
-*.log
-.DS_Store
 !out/gemini-diwali-no-wishes-line.mp4
 !out/gemini-diwali-celebrations.mp4
 !out/gemini-diwali-celebrations-portrait-1080x1920.mp4
+# Keep restored 4K masters + report (ignore bulky intermediate QA/compare files)
+!out/restored/
+out/restored/compare_*
+out/restored/zoom*
+out/restored/qa_*
+# Local Real-ESRGAN clone + weights (install via scripts/README_restore.md)
+tools/
+*.log
+.DS_Store

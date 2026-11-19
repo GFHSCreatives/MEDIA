@@ -1,5 +1,26 @@
 # GLOBAL — "First Light" · cinematic aviation logo intro
 
+## Photo restoration (4K masters)
+
+Fourteen GLOBAL operations / academy photos are restored from ~1024×576 JPEG
+sources to **3840×2160 lossless PNG** via
+[xinntao/Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN).
+
+| Path | Contents |
+|---|---|
+| `assets/source-photos/` | Original uploads |
+| `out/restored/*_restored_4k.png` | 4K PNG masters |
+| `out/restored/*_restored_4k_preview.jpg` | Quality-95 previews |
+| `scripts/restore_images.py` | Batch pipeline |
+| `scripts/README_restore.md` | GitHub install + run notes |
+
+```bash
+python3 scripts/restore_images.py   # requires tools/Real-ESRGAN + weights (see README_restore.md)
+```
+
+---
+
+
 A 14-second, 1920×1080 / 30 fps logo intro for **GLOBAL — GHA & School of Aviation**, built from the official logo artwork
 (`assets/global-logo-original.png`: arc, GLOBAL wordmark, tagline and ® mark).
 It is rendered entirely in code (Remotion + Three.js) and uses an original synthesized soundtrack.

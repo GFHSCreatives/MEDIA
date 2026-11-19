@@ -1,0 +1,268 @@
+[
+  {
+    "source": "0f81910d-4f1c-4275-b221-06ba490a7810.jpg",
+    "output_png": "0f81910d-4f1c-4275-b221-06ba490a7810_restored_4k.png",
+    "output_preview": "0f81910d-4f1c-4275-b221-06ba490a7810_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 1138.16,
+      "blockiness": 2112.2353,
+      "noise_median": 2.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 60.0
+  },
+  {
+    "source": "21bcef0d-da3f-4594-a726-64b5176836da.jpg",
+    "output_png": "21bcef0d-da3f-4594-a726-64b5176836da_restored_4k.png",
+    "output_preview": "21bcef0d-da3f-4594-a726-64b5176836da_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 498.44,
+      "blockiness": 1368.1345,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 56.7
+  },
+  {
+    "source": "36363cef-76c8-45e0-b8e7-84457106c45c.jpg",
+    "output_png": "36363cef-76c8-45e0-b8e7-84457106c45c_restored_4k.png",
+    "output_preview": "36363cef-76c8-45e0-b8e7-84457106c45c_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 833.35,
+      "blockiness": 833.1657,
+      "noise_median": 0.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 52.7
+  },
+  {
+    "source": "4df17118-0b52-4a15-b004-235194c17593.jpg",
+    "output_png": "4df17118-0b52-4a15-b004-235194c17593_restored_4k.png",
+    "output_preview": "4df17118-0b52-4a15-b004-235194c17593_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 381.27,
+      "blockiness": 1250.7796,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 58.4
+  },
+  {
+    "source": "52cbef9e-d0a0-44e0-9c7d-6fc31541b5af.jpg",
+    "output_png": "52cbef9e-d0a0-44e0-9c7d-6fc31541b5af_restored_4k.png",
+    "output_preview": "52cbef9e-d0a0-44e0-9c7d-6fc31541b5af_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 1173.47,
+      "blockiness": 2352.0825,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 56.8
+  },
+  {
+    "source": "63fa8ade-4db0-4737-9d40-2c8d26f7908a.jpg",
+    "output_png": "63fa8ade-4db0-4737-9d40-2c8d26f7908a_restored_4k.png",
+    "output_preview": "63fa8ade-4db0-4737-9d40-2c8d26f7908a_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 527.3,
+      "blockiness": 1270.7181,
+      "noise_median": 0.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 55.9
+  },
+  {
+    "source": "83681aa2-7c86-47a5-b860-cb5737f0bdf8.jpg",
+    "output_png": "83681aa2-7c86-47a5-b860-cb5737f0bdf8_restored_4k.png",
+    "output_preview": "83681aa2-7c86-47a5-b860-cb5737f0bdf8_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 553.04,
+      "blockiness": 1819.6991,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 55.2
+  },
+  {
+    "source": "a4078a7b-9603-4664-b8bc-f8a1c6e2261d.jpg",
+    "output_png": "a4078a7b-9603-4664-b8bc-f8a1c6e2261d_restored_4k.png",
+    "output_preview": "a4078a7b-9603-4664-b8bc-f8a1c6e2261d_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 1536.82,
+      "blockiness": 1921.2562,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 52.7
+  },
+  {
+    "source": "c6c7d25f-d61b-4003-834e-cafc677c7fb8.jpg",
+    "output_png": "c6c7d25f-d61b-4003-834e-cafc677c7fb8_restored_4k.png",
+    "output_preview": "c6c7d25f-d61b-4003-834e-cafc677c7fb8_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 2968.12,
+      "blockiness": 1992.729,
+      "noise_median": 2.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 53.6
+  },
+  {
+    "source": "d2fad32e-4564-447e-859e-41c8903e9a23.jpg",
+    "output_png": "d2fad32e-4564-447e-859e-41c8903e9a23_restored_4k.png",
+    "output_preview": "d2fad32e-4564-447e-859e-41c8903e9a23_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 385.72,
+      "blockiness": 1009.5213,
+      "noise_median": 1.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 61.8
+  },
+  {
+    "source": "d6be4485-8185-4b88-a842-1971254cf693.jpg",
+    "output_png": "d6be4485-8185-4b88-a842-1971254cf693_restored_4k.png",
+    "output_preview": "d6be4485-8185-4b88-a842-1971254cf693_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 542.55,
+      "blockiness": 1140.8074,
+      "noise_median": 0.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 55.5
+  },
+  {
+    "source": "dcb423ef-cd76-45d9-bc6e-167e7aa9fc62.jpg",
+    "output_png": "dcb423ef-cd76-45d9-bc6e-167e7aa9fc62_restored_4k.png",
+    "output_preview": "dcb423ef-cd76-45d9-bc6e-167e7aa9fc62_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 766.54,
+      "blockiness": 980.0449,
+      "noise_median": 0.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 53.7
+  },
+  {
+    "source": "e1c63743-157c-4545-9e75-3a13a55b2427.jpg",
+    "output_png": "e1c63743-157c-4545-9e75-3a13a55b2427_restored_4k.png",
+    "output_preview": "e1c63743-157c-4545-9e75-3a13a55b2427_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 2560.56,
+      "blockiness": 1492.3467,
+      "noise_median": 2.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 53.4
+  },
+  {
+    "source": "ea2581de-75f0-4345-a5eb-55b44f12f805.jpg",
+    "output_png": "ea2581de-75f0-4345-a5eb-55b44f12f805_restored_4k.png",
+    "output_preview": "ea2581de-75f0-4345-a5eb-55b44f12f805_restored_4k_preview.jpg",
+    "source_analysis": {
+      "size": [
+        1024,
+        576
+      ],
+      "laplacian_var": 282.46,
+      "blockiness": 581.9252,
+      "noise_median": 0.0
+    },
+    "output_size": [
+      3840,
+      2160
+    ],
+    "seconds": 51.5
+  }
+]
