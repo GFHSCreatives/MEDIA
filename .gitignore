@@ -10,6 +10,7 @@ out/*
 !out/gemini-diwali-celebrations-portrait-1080x1920.mp4
 # Keep restored 4K masters + report (ignore bulky intermediate QA/compare files)
 !out/restored/
+!out/storyboard/
 out/restored/compare_*
 out/restored/zoom*
 out/restored/qa_*

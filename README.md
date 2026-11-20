@@ -157,3 +157,23 @@ has its boom and crackle on the same frame. The tempo is 96 BPM, so one beat is 
 The five professionals are staged from behind, as rim-lit silhouettes watching the fireworks. That avoids
 uncanny faces and keeps their uniforms recognizable. To use filmed or AI-generated footage instead, replace
 `<Celebration />` in `src/diwali/DiwaliReel.tsx` with an `<OffthreadVideo>` covering frames 70–170.
+
+---
+
+# Sheru Bhai — The Aviation Mission · storyboard stills (9:16)
+
+Nineteen 1080 × 1920 stills in story order, built from the supplied *Expanded Storyboard* PDF:
+frames 01–18 are its story frames upscaled 2× from 540 × 960 (no generative fill), and frame 19
+(the brand card) is re-rendered natively from the PDF's vector page.
+
+| Path | Contents |
+|---|---|
+| `out/storyboard/sheru-bhai/frame-01.png` … `frame-19.png` | The stills |
+| `out/storyboard/sheru-bhai/contact-sheet.jpg` | All 19 at a glance |
+| `out/storyboard/sheru-bhai/README.md` | Provenance, frame index, dialogue, check against the brief |
+| `assets/storyboard-source/sheru-bhai/` | The source PDF and the 18 extracted 540 × 960 frames |
+| `scripts/storyboard_frames.py` | Rebuilds everything, or one frame with `--frame N` |
+
+```bash
+python3 scripts/storyboard_frames.py assets/storyboard-source/sheru-bhai/Sheru-Bhai-Expanded-Storyboard.pdf
+```

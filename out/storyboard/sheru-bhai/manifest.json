@@ -1,0 +1,247 @@
+{
+  "01": {
+    "source": "frame-01-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.515,
+    "psnr_db": 49.12,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-01.png",
+    "bytes": 2636037,
+    "sha256_16": "6606770ab3f88a4f"
+  },
+  "02": {
+    "source": "frame-02-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.755,
+    "psnr_db": 45.29,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-02.png",
+    "bytes": 3032046,
+    "sha256_16": "51397cc95efee862"
+  },
+  "03": {
+    "source": "frame-03-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.498,
+    "psnr_db": 49.03,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-03.png",
+    "bytes": 2419086,
+    "sha256_16": "139183975b36c1d2"
+  },
+  "04": {
+    "source": "frame-04-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.637,
+    "psnr_db": 46.66,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-04.png",
+    "bytes": 2558889,
+    "sha256_16": "42522fed83b4eabc"
+  },
+  "05": {
+    "source": "frame-05-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.624,
+    "psnr_db": 46.69,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-05.png",
+    "bytes": 2562058,
+    "sha256_16": "8e307d31f378b83b"
+  },
+  "06": {
+    "source": "frame-06-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.619,
+    "psnr_db": 47.59,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-06.png",
+    "bytes": 2904156,
+    "sha256_16": "bc634517bc007c4b"
+  },
+  "07": {
+    "source": "frame-07-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.738,
+    "psnr_db": 45.52,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-07.png",
+    "bytes": 2891303,
+    "sha256_16": "0f955f16ab08d25d"
+  },
+  "08": {
+    "source": "frame-08-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.867,
+    "psnr_db": 44.27,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-08.png",
+    "bytes": 2981281,
+    "sha256_16": "0875266ed2accd17"
+  },
+  "09": {
+    "source": "frame-09-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.653,
+    "psnr_db": 47.03,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-09.png",
+    "bytes": 3019256,
+    "sha256_16": "a19c1762cdb1735b"
+  },
+  "10": {
+    "source": "frame-10-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.692,
+    "psnr_db": 46.39,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-10.png",
+    "bytes": 2966560,
+    "sha256_16": "53581d837793e235"
+  },
+  "11": {
+    "source": "frame-11-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.738,
+    "psnr_db": 45.6,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-11.png",
+    "bytes": 2716994,
+    "sha256_16": "d5dc4e899c40c1d3"
+  },
+  "12": {
+    "source": "frame-12-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.752,
+    "psnr_db": 46.39,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-12.png",
+    "bytes": 3245788,
+    "sha256_16": "035e5e3e9e7bc423"
+  },
+  "13": {
+    "source": "frame-13-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.63,
+    "psnr_db": 46.93,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-13.png",
+    "bytes": 2472521,
+    "sha256_16": "2b2d32a8cdf23355"
+  },
+  "14": {
+    "source": "frame-14-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.519,
+    "psnr_db": 48.73,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-14.png",
+    "bytes": 2591702,
+    "sha256_16": "398f78d504415b25"
+  },
+  "15": {
+    "source": "frame-15-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.67,
+    "psnr_db": 46.69,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-15.png",
+    "bytes": 2917130,
+    "sha256_16": "144891bfadacddbe"
+  },
+  "16": {
+    "source": "frame-16-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 1.16,
+    "psnr_db": 42.23,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-16.png",
+    "bytes": 3255182,
+    "sha256_16": "0dc24d72e53ef8fb"
+  },
+  "17": {
+    "source": "frame-17-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.767,
+    "psnr_db": 45.28,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-17.png",
+    "bytes": 2859334,
+    "sha256_16": "26e5c46ea376710f"
+  },
+  "18": {
+    "source": "frame-18-540x960.jpg",
+    "method": "2x upscale (Lanczos + back-projection + halo-limited sharpen + grain)",
+    "mean_abs_diff": 0.498,
+    "psnr_db": 49.31,
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-18.png",
+    "bytes": 2448182,
+    "sha256_16": "f5de9d99038e5cfd"
+  },
+  "19": {
+    "source": "PDF page 7 (vector)",
+    "method": "native render at 1080x1920",
+    "size": [
+      1080,
+      1920
+    ],
+    "file": "frame-19.png",
+    "bytes": 88929,
+    "sha256_16": "3cc3c9df49ac49a1"
+  }
+}
