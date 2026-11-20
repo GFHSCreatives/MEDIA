@@ -177,3 +177,86 @@ frames 01–18 are its story frames upscaled 2× from 540 × 960 (no generative 
 ```bash
 python3 scripts/storyboard_frames.py assets/storyboard-source/sheru-bhai/Sheru-Bhai-Expanded-Storyboard.pdf
 ```
+
+---
+
+# Sheru Bhai — The Aviation Mission · animated storyboard (9:16)
+
+The 19 storyboard stills, animated into an **82-second vertical film** (1080 × 1920, 24 fps, H.264 + AAC)
+with an original score and sound design. Scene timings follow the storyboard PDF:
+00:00 · 00:12 · 00:23 · 00:35 · 00:49 · 01:07 · 01:14, then the 8-second brand card.
+
+| Deliverable | File |
+|---|---|
+| Captioned master | `out/sheru-bhai-animatic-1080x1920.mp4` |
+| Clean version (no captions), for voice-over | `out/sheru-bhai-animatic-clean-1080x1920.mp4` |
+| Dialogue as subtitles (SRT) | `out/sheru-bhai-dialogue.srt` |
+| Score and sound design, 48 kHz stereo, −14 LUFS | `public/audio/sheru-bhai-score.wav` |
+
+## What this is, and what it is not
+
+Every frame is the exact still from `out/storyboard/sheru-bhai/`. Nothing is re-generated, so the faces, suits,
+jewellery, the toy jet and the sign in frame 17 are exactly as delivered. The animation is **cinematic camera work plus
+effects**, not character performance: the characters do not blink, speak or walk. What moves:
+
+- a virtual camera over each still: slow push-ins, pans, a pull-back reveal, a punch-in on the shock, a walking bob
+- effects built from each frame's own pixels: gold glints that sweep only across the gold (chains, embroidery, trim),
+  twinkling lights, sparkle stars on specular highlights, drifting dust, and mist that clears from the terminal
+- hero moments: the search bar types the guard's query, the map lights up from the monument and the three markers
+  burst on, the real airliner in frame 18 climbs away and leaves a contrail, and the brand card builds line by line
+- dialogue captions that spell out each line word by word (the cast has no voices); the clean version has none
+
+## Shot by shot
+
+| # | Time | Shot | Motion and effects |
+|---|---|---|---|
+| 01 | 0:00 | The toy jet | fade up from black, slow push-in; the toy jet whooshes through the foreground |
+| 02 | 0:03 | The order | slow push toward Sheru's pointing hand; brass fanfare on the cut |
+| 03 | 0:09 | The bodyguard listens | push-in with a small nudge as he straightens his jacket |
+| 04 | 0:12 | The search | the search field types "best aviation college in India", with key clicks |
+| 05 | 0:15 | The college result | drift toward the screen; search-result chime |
+| 06 | 0:19 | The price | push-in; the desk tap lands with a camera punch at 0:20.75 |
+| 07 | 0:23 | The wing emerges | push-in; light washes across the map's gold outline from the plinth |
+| 08 | 0:26.5 | Three branches | push-through dive into the map, then a pull-out; a light wave and three marker pings |
+| 09 | 0:30 | Only three? | slow push; the same light wave across the small map |
+| 10 | 0:35 | The first glimpse | pan from the wing to the terminal as the dusk haze clears |
+| 11 | 0:38 | The full reveal | pull-back from the monument to the full airport; orchestral chord and sub boom |
+| 12 | 0:43.5 | "What?! Thirty-plus airports?" | punch-in on the cut with a shock stinger, then a held breath |
+| 13 | 0:49 | Taking it in | slow push toward the window; runway lights twinkle |
+| 14 | 0:55 | The verdict | slow drift; lounge murmur and a glass clink |
+| 15 | 1:01 | The decision | slow push toward the cub; the score warms to D major on "join my son" |
+| 16 | 1:07 | Arrival | flash-dissolve into the morning; theme returns in full |
+| 17 | 1:09 | Through the doors | follow shot with a walking bob; footsteps in step with it (no effects touch the sign) |
+| 18 | 1:11.5 | The dream takes flight | the airliner climbs away, leaving a contrail; crescendo into the card |
+| 19 | 1:14 | Final brand card | the exact card, revealed band by band; resolves on D add9 |
+
+## How the sync works
+
+The picture and the score read the same data, so they cannot drift apart:
+
+- `src/sheru/timeline.json`: shot boundaries, transitions, captions (120 BPM grid, so every cut is on a beat)
+- `src/sheru/shots.ts`: per-shot camera, glints, camera punches and bumps, the walk cycle
+- `scripts/make_sheru_audio.py` parses `shots.ts`, `fx.tsx` and `BrandCard.tsx` and places the typing clicks, the
+  desk tap, each map marker's ping, the footsteps and the title chimes on the exact frame the picture shows them
+
+Edit the picture's timing, re-run the audio script, and the sound follows.
+
+## Rebuild
+
+```bash
+npm run sheru:frames    # stills (only if the storyboard PDF changes)
+npm run sheru:prep      # effect masks and points from the stills (also copies the stills into public/)
+npm run sheru:audio     # score and sound design
+npm run sheru:srt       # dialogue subtitles
+npm run sheru:studio    # live preview, composition "SheruBhaiAnimatic"
+npm run sheru:render    # captioned master + clean version
+```
+
+The stills are 1080 × 1920, so a 4K render (`--scale=2`) is an up-scale of the pictures. The captions, brand-card
+text and effects render natively sharp.
+
+## Going further: real character animation
+
+To make the characters themselves move (blinks, lip-sync, walking), run each of the 18 stills through an
+image-to-video model. The timeline, captions, score and brand card here can then be reused unchanged: replace the
+still in `ShotView` (`src/sheru/SheruBhai.tsx`) with the generated clip for that shot.

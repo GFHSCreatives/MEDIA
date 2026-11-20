@@ -8,7 +8,13 @@
     "render": "remotion render GlobalIntro out/global-intro-1080p.mp4",
     "render:4k": "remotion render GlobalIntro4K out/global-intro-4k.mp4",
     "audio": "python3 scripts/make_audio.py public/audio/global-intro-score.wav",
-    "vectorize": "python3 scripts/vectorize_logo.py"
+    "vectorize": "python3 scripts/vectorize_logo.py",
+    "sheru:frames": "python3 scripts/storyboard_frames.py assets/storyboard-source/sheru-bhai/Sheru-Bhai-Expanded-Storyboard.pdf",
+    "sheru:prep": "python3 scripts/sheru_fx_prep.py",
+    "sheru:audio": "python3 scripts/make_sheru_audio.py",
+    "sheru:srt": "python3 scripts/make_sheru_srt.py",
+    "sheru:studio": "remotion studio",
+    "sheru:render": "bash scripts/render_sheru.sh"
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.3.0",

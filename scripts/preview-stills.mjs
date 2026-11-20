@@ -13,7 +13,7 @@ fs.mkdirSync(outDir, { recursive: true });
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
 const chromiumOptions = { gl: "swangle" };
 const browserExecutable = process.env.REMOTION_BROWSER ?? null;
-const inputProps = { withAudio: false };
+const inputProps = process.env.PROPS ? JSON.parse(process.env.PROPS) : { withAudio: false };
 const composition = await selectComposition({ serveUrl, id: compId, inputProps, chromiumOptions, browserExecutable });
 for (const frame of frames) {
   const t = Date.now();

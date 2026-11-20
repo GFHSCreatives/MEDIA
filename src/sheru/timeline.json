@@ -1,0 +1,41 @@
+{
+  "_doc": "Master timeline for the Sheru Bhai animatic. Frames @ 24 fps. Shared by the picture (src/sheru/*) and the score (scripts/make_sheru_audio.py). Scene timings follow the storyboard PDF: 00:00-00:12, 00:12-00:23, 00:23-00:35, 00:35-00:49, 00:49-01:07, 01:07-01:14, then the 8 s brand card (suggested runtime 82 s). 'in' describes how shot N arrives: dissolves/flashes are centred on 'start'.",
+  "fps": 24,
+  "width": 1080,
+  "height": 1920,
+  "duration": 1968,
+  "shots": [
+    { "n": 1,  "start": 0,    "end": 72,   "in": { "type": "fadeBlack",     "len": 14 } },
+    { "n": 2,  "start": 72,   "end": 216,  "in": { "type": "dissolve",      "len": 10 } },
+    { "n": 3,  "start": 216,  "end": 288,  "in": { "type": "cut",           "len": 0 } },
+    { "n": 4,  "start": 288,  "end": 360,  "in": { "type": "flashDissolve", "len": 14, "color": "#ffe6b0" } },
+    { "n": 5,  "start": 360,  "end": 456,  "in": { "type": "cut",           "len": 0 } },
+    { "n": 6,  "start": 456,  "end": 552,  "in": { "type": "cut",           "len": 0 } },
+    { "n": 7,  "start": 552,  "end": 636,  "in": { "type": "flashDissolve", "len": 14, "color": "#bfe4ff" } },
+    { "n": 8,  "start": 636,  "end": 720,  "in": { "type": "pushThrough",   "len": 18, "color": "#d8efff" } },
+    { "n": 9,  "start": 720,  "end": 840,  "in": { "type": "dissolve",      "len": 12 } },
+    { "n": 10, "start": 840,  "end": 912,  "in": { "type": "flashDissolve", "len": 12, "color": "#ffd49a" } },
+    { "n": 11, "start": 912,  "end": 1044, "in": { "type": "dissolve",      "len": 16 } },
+    { "n": 12, "start": 1044, "end": 1176, "in": { "type": "cut",           "len": 0 } },
+    { "n": 13, "start": 1176, "end": 1320, "in": { "type": "dissolve",      "len": 20 } },
+    { "n": 14, "start": 1320, "end": 1464, "in": { "type": "cut",           "len": 0 } },
+    { "n": 15, "start": 1464, "end": 1608, "in": { "type": "cut",           "len": 0 } },
+    { "n": 16, "start": 1608, "end": 1656, "in": { "type": "flashDissolve", "len": 20, "color": "#fff4dc" } },
+    { "n": 17, "start": 1656, "end": 1716, "in": { "type": "dissolve",      "len": 10 } },
+    { "n": 18, "start": 1716, "end": 1776, "in": { "type": "dissolve",      "len": 10 } },
+    { "n": 19, "start": 1776, "end": 1968, "in": { "type": "dip",           "len": 26, "color": "#1f1b19" } }
+  ],
+  "captions": [
+    { "id": 1,  "speaker": "SHERU BHAI", "start": 79,   "end": 255,  "text": "My son wants to build a career in aviation. Find me the best aviation college in India. I am ready to buy one!" },
+    { "id": 2,  "speaker": "BODYGUARD",  "start": 370,  "end": 440,  "text": "Sir, we have found Global School of Aviation!" },
+    { "id": 3,  "speaker": "SHERU BHAI", "start": 461,  "end": 550,  "text": "Good! Find out how much it costs. I want to buy it!" },
+    { "id": 4,  "speaker": "BODYGUARD",  "start": 566,  "end": 653,  "text": "Sir, Global School of Aviation has three branches in India!" },
+    { "id": 5,  "speaker": "SHERU BHAI", "start": 730,  "end": 812,  "text": "Only three branches? Interesting! Let's investigate further." },
+    { "id": 6,  "speaker": "BODYGUARD",  "start": 852,  "end": 998,  "text": "Sir! There is something much bigger behind it! Global Flight Handling Services operates across 30+ airports in India!" },
+    { "id": 7,  "speaker": "SHERU BHAI", "start": 1061, "end": 1126, "text": "What?! Thirty-plus airports?" },
+    { "id": 8,  "speaker": "SHERU BHAI", "start": 1186, "end": 1316, "text": "I came here to buy an aviation college... but this is much bigger than I imagined!" },
+    { "id": 9,  "speaker": "BODYGUARD",  "start": 1334, "end": 1416, "text": "Sir, I don't think we can buy this company!" },
+    { "id": 10, "speaker": "SHERU BHAI", "start": 1488, "end": 1570, "text": "Then forget buying it. Let's join my son there!" },
+    { "id": 11, "speaker": "SHERU BHAI", "start": 1639, "end": 1718, "text": "Son, this is where your aviation journey begins!" }
+  ]
+}

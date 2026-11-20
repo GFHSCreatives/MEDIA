@@ -18,3 +18,11 @@ out/restored/qa_*
 tools/
 *.log
 .DS_Store
+
+# Sheru Bhai animatic: stills are copied here by scripts/sheru_fx_prep.py (source of truth: out/storyboard/sheru-bhai/)
+public/sheru/frames/
+# Sheru Bhai animatic deliverables
+!out/sheru-bhai-animatic-1080x1920.mp4
+!out/sheru-bhai-animatic-clean-1080x1920.mp4
+!out/sheru-bhai-dialogue.srt
+__pycache__/
