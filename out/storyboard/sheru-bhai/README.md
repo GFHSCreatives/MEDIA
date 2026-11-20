@@ -4,6 +4,9 @@ Nineteen full-bleed 9:16 portrait stills, **1080 × 1920 PNG**, in story order:
 `frame-01.png` … `frame-19.png`. `contact-sheet.jpg` shows all 19 at a glance, and
 `manifest.json` lists each file's source, size and fidelity numbers.
 
+> These stills are also animated: see `out/sheru-bhai-animatic-1080x1920.mp4` (and the clean version) and the
+> "animated storyboard" section of the top-level README.
+
 ## Where the frames come from
 
 - **Frames 01–18** are the story frames embedded in the supplied *Expanded Storyboard* PDF
