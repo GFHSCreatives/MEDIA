@@ -14,7 +14,9 @@
     "sheru:audio": "python3 scripts/make_sheru_audio.py",
     "sheru:srt": "python3 scripts/make_sheru_srt.py",
     "sheru:studio": "remotion studio",
-    "sheru:render": "bash scripts/render_sheru.sh"
+    "sheru:render": "bash scripts/render_sheru.sh",
+    "sheru:pack": "python3 scripts/sheru_shot_pack.py",
+    "sheru:film": "python3 scripts/sheru_assemble.py"
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.3.0",

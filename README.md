@@ -257,9 +257,19 @@ text and effects render natively sharp.
 
 ## Going further: real character animation
 
-To make the characters themselves move (blinks, lip-sync, walking), run each of the 18 stills through an
-image-to-video model. The timeline, captions, score and brand card here can then be reused unchanged: replace the
-still in `ShotView` (`src/sheru/SheruBhai.tsx`) with the generated clip for that shot.
+The animatic above moves the camera and the effects, but the characters themselves stay still. To make them act
+(blinks, gestures, walking, talking), run each of the 18 stills through an image-to-video model and assemble the clips:
 
-The ready-made shot pack (first-frame URL, acting direction, camera and the exact dialogue for all 18 shots) is in
-`out/storyboard/sheru-bhai/animation-shot-pack.md` (JSON alongside); `python3 scripts/sheru_shot_pack.py` regenerates it.
+| step | where |
+|---|---|
+| Shot pack: first frame, acting direction, camera and exact dialogue per shot, plus a silent-model prompt (`motion_prompt`), negative prompt and voice description | `out/storyboard/sheru-bhai/animation-shot-pack.md` / `.json`; `python3 scripts/sheru_shot_pack.py` regenerates them |
+| Generate the clips on a GPU (local ComfyUI/diffusers, or a hosted model) | write `assets/sheru-clips-raw/shot-01.mp4` … `shot-18.mp4`; a step-by-step brief for a Claude session on a GPU PC is in `LOCAL_GPU_BRIEF.md` |
+| Record the dialogue if the clips are silent (optional) | `assets/sheru-voices/shot-NN.wav` |
+| Assemble | `python3 scripts/sheru_assemble.py --check`, then `python3 scripts/sheru_assemble.py` → `out/sheru-bhai-film-1080x1920.mp4` (+ `.srt`, `.json`) |
+
+`scripts/sheru_assemble.py` needs only Python and ffmpeg. It accepts any subset of clips (a shot with no clip is taken from
+the animatic, so the film is always complete and improves as clips arrive), conforms them to 1080 × 1920 at 24 fps, lays a
+recorded voice or the clip's own audio over each shot, ducks the music bed under speech, crossfades into the exact animated
+brand card and normalises to −14 LUFS. The music bed is the score's music bus alone (`public/audio/sheru-bhai-music-stem.wav`,
+written by `python3 scripts/make_sheru_audio.py --stem public/audio/sheru-bhai-music-stem.wav`) so no picture-synced
+effect from the animatic plays over footage it does not belong to.

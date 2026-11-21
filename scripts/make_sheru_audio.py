@@ -19,7 +19,9 @@ Key D major, 120 BPM. The cast has no voices (the story is carried by captions),
   6 The Final Decision  the theme in full, footsteps, birdsong, the airliner climbing, a crescendo
   card                  resolved D add9 with bells
 
-usage: python3 scripts/make_sheru_audio.py [out.wav]      (default: public/audio/sheru-bhai-score.wav)
+usage: python3 scripts/make_sheru_audio.py [out.wav] [--stem music-stem.wav]
+       (default: public/audio/sheru-bhai-score.wav; --stem also writes the music bus alone, without the picture-synced
+        sound effects, as a bed for cuts that follow other footage, e.g. image-to-video clips: scripts/sheru_assemble.py)
 Needs: numpy, scipy, pyloudnorm
 """
 import json
@@ -157,6 +159,7 @@ def fade(x, a=0.0, r=0.0):
 MUS = np.zeros((N, 2))  # music bus (gets ducked before big hits)
 FXB = np.zeros((N, 2))  # sound-effects bus
 SEND = np.zeros((N, 2))  # reverb send
+SEND_M = np.zeros((N, 2))  # reverb send of the music bus only (for the --stem export)
 DIP = np.ones(N)  # music-bus ducking envelope
 CUES: list[tuple[float, str]] = []
 
@@ -170,6 +173,8 @@ def _put(bus, t0, x, gain, pan, send):
     bus[i0 + a : i0 + b] += x[a:b]
     if send:
         SEND[i0 + a : i0 + b] += x[a:b] * send
+        if bus is MUS:
+            SEND_M[i0 + a : i0 + b] += x[a:b] * send
 
 
 def music(t0, x, gain=1.0, pan=0.0, send=0.30):
@@ -728,10 +733,29 @@ for _ in range(32):
 out = np.tanh(base * lo) / np.tanh(lo) * CEIL
 print(f"master: {meter.integrated_loudness(out):.1f} LUFS, limiter drive {lo:.2f}, peak {np.abs(out).max():.3f}")
 
-dest = Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "public" / "audio" / "sheru-bhai-score.wav")
+args = sys.argv[1:]
+stem_dest = None
+if "--stem" in args:
+    i = args.index("--stem")
+    stem_dest = Path(args[i + 1])
+    del args[i : i + 2]
+dest = Path(args[0] if args else ROOT / "public" / "audio" / "sheru-bhai-score.wav")
 dest.parent.mkdir(parents=True, exist_ok=True)
 wavfile.write(dest, SR, (np.clip(out, -1, 1) * 32767).astype(np.int16))
 print(f"wrote {dest}  ({DUR:.2f} s, {SR} Hz stereo)")
 print("\nsynchronised cue points (s):")
 for t_, label in sorted(CUES):
     print(f"  {t_:7.2f}  {label}")
+
+if stem_dest:
+    # music bus alone (same hall reverb, EQ and fades as the master, none of the picture-synced effects),
+    # peak-normalised to -3 dBFS; the film assembler sets the final level.
+    wet_m = np.stack([fftconvolve(SEND_M[:, c], ir[:, c])[:N] for c in range(2)], -1)
+    stem = mus * 0.85 + wet_m * 0.34
+    stem = hp(stem - 0.35 * lp(stem, 120), 28)
+    stem = stem + 0.30 * hp(stem, 3200, 1)
+    stem = fade(stem, 0.03, 1.6)
+    stem = stem / np.abs(stem).max() * 10 ** (-3.0 / 20)
+    stem_dest.parent.mkdir(parents=True, exist_ok=True)
+    wavfile.write(stem_dest, SR, (np.clip(stem, -1, 1) * 32767).astype(np.int16))
+    print(f"wrote {stem_dest}  (music bus only, {DUR:.2f} s)")

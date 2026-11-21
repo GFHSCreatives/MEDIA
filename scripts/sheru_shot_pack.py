@@ -12,6 +12,7 @@ Writes:
 usage: python3 scripts/sheru_shot_pack.py
 """
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -84,11 +85,43 @@ SHOTS = [
          prompt="Inside the school, the cub in profile at a window raises the silver toy jet in his paw while a real passenger aircraft climbs outside in the same direction; his eyes follow the plane, his smile widens and he lets out a delighted gasp as the toy and the real jet climb in parallel, the airliner leaving a thin contrail across clear sky with open sky left between the two silhouettes. Slow push-in, bright morning sun. Audio: the cub's delighted gasp, a distant jet roar, quiet room tone. No dialogue."),
 ]
 
+# --- prompts for models that generate SILENT video (most open-weights image-to-video models) -----------------------
+# The spoken line and the "Audio:" sentence are cut out; the voices are recorded separately (see "voice").
+# Shots where the speaker's mouth is on screen get a plain "talks" clause so the face acts the line.
+MOTION_TAIL = (
+    "Photorealistic 3D animated anthropomorphic animals with expressive animal faces and upright humanlike posture; "
+    "keep every face, the fur, the suits, the jewellery and the props exactly as in the first frame. "
+    "One continuous shot, smooth natural motion, no cuts, no text overlays."
+)
+NEGATIVE_PROMPT = (
+    "blurry, low quality, jitter, flicker, morphing or changing faces, extra limbs, extra fingers, deformed paws or hooves, "
+    "melting fur, warped suit, changing jewellery, scene change, camera cut, text, watermark, captions, subtitles, logo"
+)
+VOICES = {"Sheru Bhai": SHERU, "The bodyguard": GUARD}
+LIP_VISIBLE = {2, 5, 6, 9, 12, 14, 15}  # the speaker's mouth is on screen in these shots
+SPEAKER_NOUN = {"Sheru Bhai": "Sheru", "The bodyguard": "The buffalo"}
+
+
+def silent_prompt(s):
+    p = s["prompt"]
+    cut = re.search(r'\s+(?:Sheru says|The buffalo says|An off-screen voice)[^"]*"[^"]*"', p)
+    if cut:
+        p = p[: cut.start()]
+    p = re.sub(r"\s*Audio:.*$", "", p).rstrip()
+    if s["n"] in LIP_VISIBLE:
+        p += f" {SPEAKER_NOUN[s['speaker'].replace(' (off-screen)', '')]}'s jaw and lips move naturally as he talks, with small head and brow movements."
+    return f"{p} {MOTION_TAIL}"
+
+
 for s in SHOTS:
     s["first_frame"] = f"out/storyboard/sheru-bhai/frame-{s['n']:02d}.png"
     s["first_frame_url"] = f"{RAW}/frame-{s['n']:02d}.png"
     s["prompt_full"] = f"{s['prompt']} {STYLE_TAIL}"
     s["clip_file"] = f"assets/sheru-clips-raw/shot-{s['n']:02d}.mp4"
+    s["motion_prompt"] = silent_prompt(s)
+    s["lip_visible"] = s["n"] in LIP_VISIBLE
+    spk = (s["speaker"] or "").replace(" (off-screen)", "")
+    s["voice"] = VOICES.get(spk, "") if s["dialogue"] else ""
 
 pack = {
     "film": "Sheru Bhai - The Aviation Mission",
@@ -102,6 +135,10 @@ pack = {
     ],
     "cast": CAST,
     "style_tail": STYLE_TAIL,
+    "motion_tail": MOTION_TAIL,
+    "negative_prompt": NEGATIVE_PROMPT,
+    "voices": VOICES,
+    "fps": 24,
     "total_target_seconds": sum(s["duration_s"] for s in SHOTS),
     "shots": SHOTS,
 }
@@ -113,14 +150,16 @@ md = ["# Sheru Bhai: animation shot pack", "",
       f"Total about {pack['total_target_seconds']} s of generated clips, plus the 8 s brand card (frame 19, not generated).", "",
       "## Cast (kept identical in every shot)", ""]
 md += [f"- **{k}**: {v}" for k, v in CAST.items()]
-md += ["", "## Added to every prompt", "", STYLE_TAIL, ""]
+md += ["", "## Added to every prompt", "", STYLE_TAIL, "",
+       "## Added to every silent-model prompt", "", MOTION_TAIL, "", "Negative prompt (models that take one):", "", NEGATIVE_PROMPT, ""]
 for s in SHOTS:
     md += [f"## Shot {s['n']:02d}: {s['title']} ({s['duration_s']} s)", "",
            f"- First frame: `{s['first_frame']}`  \n  {s['first_frame_url']}",
            f"- Speaker: {s['speaker'] or 'none'}"]
     if s["dialogue"]:
         md.append(f"- Line: \"{s['dialogue']}\"")
-    md += ["", "```", s["prompt"], "```", ""]
+    md += ["", "```", s["prompt"], "```", "",
+           "Silent-model prompt (no spoken line, no audio cues; record the voice separately):", "", "```", s["motion_prompt"], "```", ""]
 (OUT / "animation-shot-pack.md").write_text("\n".join(md), encoding="utf-8")
 print(f"wrote {len(SHOTS)} shots, {pack['total_target_seconds']} s of clips -> {OUT}/animation-shot-pack.(json|md)")
-print("longest prompt (chars):", max(len(s['prompt_full']) for s in SHOTS))
+print("longest prompt (chars):", max(len(s['prompt_full']) for s in SHOTS), "| silent:", max(len(s['motion_prompt']) for s in SHOTS))
