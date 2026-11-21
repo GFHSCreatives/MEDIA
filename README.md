@@ -260,3 +260,6 @@ text and effects render natively sharp.
 To make the characters themselves move (blinks, lip-sync, walking), run each of the 18 stills through an
 image-to-video model. The timeline, captions, score and brand card here can then be reused unchanged: replace the
 still in `ShotView` (`src/sheru/SheruBhai.tsx`) with the generated clip for that shot.
+
+The ready-made shot pack (first-frame URL, acting direction, camera and the exact dialogue for all 18 shots) is in
+`out/storyboard/sheru-bhai/animation-shot-pack.md` (JSON alongside); `python3 scripts/sheru_shot_pack.py` regenerates it.
